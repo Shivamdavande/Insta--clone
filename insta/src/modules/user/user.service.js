@@ -12,12 +12,15 @@ export const createUserService = async (data) => {
     throw new Error("User already exists");
   }
 
+  console.log("Saving user...");
   const user = await User.create({
     name,
     username,
     email,
     password
   });
+
+  console.log("Saved User:", user);
 
   return user;
 };
