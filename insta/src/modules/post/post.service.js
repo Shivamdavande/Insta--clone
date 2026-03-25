@@ -12,3 +12,12 @@ export const createPostService = async (userId, caption, image) => {
 
     return newPost;
 }
+
+
+export const getFeedService = async () => {
+
+    const posts = await post.find().populate('user', 'username')
+        .sort({ createdAt: -1 });
+
+    return posts;
+}
